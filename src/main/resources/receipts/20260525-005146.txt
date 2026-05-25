@@ -1,0 +1,6 @@
+===== BIRUK'S BURGER HOUSE =====
+small veggie Burger | Double Patty: true | Toppings: [] | Price: $7.5
+medium coke Drink | Price: $2.5
+Fries Side | Price: $3.0
+-------------------------
+Total: $13.00

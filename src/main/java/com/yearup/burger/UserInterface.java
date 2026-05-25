@@ -64,6 +64,11 @@ public class UserInterface {
                     break;
                 case 4:
                     order.displayOrder();
+
+                    ReceiptFileManager receiptFileManager = new ReceiptFileManager();
+                    receiptFileManager.saveReceipt(order);
+
+                    ordering = false;
                     break;
                 case 0:
                     System.out.println("Order canceled.");
