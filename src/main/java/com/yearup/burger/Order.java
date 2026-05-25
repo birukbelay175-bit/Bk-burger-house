@@ -65,4 +65,28 @@ public class Order {
         System.out.println("-------------------------");
         System.out.printf("Total: $%.2f%n", calculateTotal());
     }
+    // Creates receipt text
+    public String getReceiptText() {
+
+        StringBuilder receipt = new StringBuilder();
+
+        receipt.append("===== BIRUK'S BURGER HOUSE =====\n");
+
+        for (Burger burger : burgers) {
+            receipt.append(burger).append("\n");
+        }
+
+        for (Drink drink : drinks) {
+            receipt.append(drink).append("\n");
+        }
+
+        for (Side side : sides) {
+            receipt.append(side).append("\n");
+        }
+
+        receipt.append("-------------------------\n");
+        receipt.append(String.format("Total: $%.2f%n", calculateTotal()));
+
+        return receipt.toString();
+    }
 }
