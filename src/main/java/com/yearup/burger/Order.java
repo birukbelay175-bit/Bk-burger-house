@@ -4,43 +4,45 @@ import java.util.ArrayList;
 
 public class Order {
 
-    // Stores all burgers in the order
     private ArrayList<Burger> burgers;
+    private ArrayList<Drink> drinks;
 
-    // Constructor
     public Order() {
-
         burgers = new ArrayList<>();
+        drinks = new ArrayList<>();
     }
 
-    // Adds burger to order
     public void addBurger(Burger burger) {
-
         burgers.add(burger);
     }
 
-    // Calculates total order price
-    public double calculateTotal() {
+    public void addDrink(Drink drink) {
+        drinks.add(drink);
+    }
 
+    public double calculateTotal() {
         double total = 0;
 
-        // Loop through all burgers
         for (Burger burger : burgers) {
-
             total += burger.calculatePrice();
+        }
+
+        for (Drink drink : drinks) {
+            total += drink.calculatePrice();
         }
 
         return total;
     }
 
-    // Displays order details
     public void displayOrder() {
-
         System.out.println("\n===== ORDER DETAILS =====");
 
         for (Burger burger : burgers) {
-
             System.out.println(burger);
+        }
+
+        for (Drink drink : drinks) {
+            System.out.println(drink);
         }
 
         System.out.println("-------------------------");

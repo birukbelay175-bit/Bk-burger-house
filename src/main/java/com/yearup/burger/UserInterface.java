@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class UserInterface {
 
     Scanner scanner = new Scanner(System.in);
-
+    private Order order = new Order();
     public void display() {
 
         boolean running = true;
@@ -54,16 +54,16 @@ public class UserInterface {
 
             switch (choice) {
                 case 1:
-                    System.out.println("Add Burger selected.");
+                    addBurger();
                     break;
                 case 2:
-                    System.out.println("Add Drink selected.");
+                    addDrink();
                     break;
                 case 3:
                     System.out.println("Add Side selected.");
                     break;
                 case 4:
-                    System.out.println("Checkout selected.");
+                    order.displayOrder();
                     break;
                 case 0:
                     System.out.println("Order canceled.");
@@ -73,5 +73,61 @@ public class UserInterface {
                     System.out.println("Invalid option.");
             }
         }
+    }
+    public void addBurger() {
+
+        // Ask for burger size
+        System.out.print("Enter burger size (Small, Medium, Large): ");
+        String size = scanner.nextLine();
+
+        // Ask for burger type
+        System.out.print("Enter burger type (Beef, Chicken, Veggie): ");
+        String type = scanner.nextLine();
+
+        // Ask for double patty option
+        System.out.print("Double Patty? (yes/no): ");
+        String answer = scanner.nextLine();
+
+        boolean doublePatty = answer.equalsIgnoreCase("yes");
+
+        // Create burger object
+        Burger burger = new Burger(size, type, doublePatty);
+
+        // Ask for toppings
+        boolean addingToppings = true;
+
+        while (addingToppings) {
+
+            System.out.print("Enter topping (or type done): ");
+            String topping = scanner.nextLine();
+
+            if (topping.equalsIgnoreCase("done")) {
+
+                addingToppings = false;
+
+            } else {
+
+                burger.addTopping(topping);
+            }
+        }
+
+        // Add burger to order
+        order.addBurger(burger);
+
+        System.out.println("Burger added successfully!");
+    }
+    public void addDrink() {
+
+        System.out.print("Enter drink size (Small, Medium, Large): ");
+        String size = scanner.nextLine();
+
+        System.out.print("Enter drink flavor: ");
+        String flavor = scanner.nextLine();
+
+        Drink drink = new Drink(size, flavor);
+
+        order.addDrink(drink);
+
+        System.out.println("Drink added successfully!");
     }
 }
