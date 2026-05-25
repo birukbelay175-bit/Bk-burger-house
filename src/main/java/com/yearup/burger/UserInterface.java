@@ -60,7 +60,7 @@ public class UserInterface {
                     addDrink();
                     break;
                 case 3:
-                    System.out.println("Add Side selected.");
+                    addSide();
                     break;
                 case 4:
                     order.displayOrder();
@@ -129,5 +129,17 @@ public class UserInterface {
         order.addDrink(drink);
 
         System.out.println("Drink added successfully!");
+    }
+    // Adds side to order
+    public void addSide() {
+
+        System.out.print("Enter side (Fries, Onion Rings, Salad): ");
+        String sideName = scanner.nextLine();
+
+        Side side = new Side(sideName);
+
+        order.addSide(side);
+
+        System.out.println("Side added successfully!");
     }
 }
