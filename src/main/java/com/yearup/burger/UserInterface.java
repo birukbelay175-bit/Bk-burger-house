@@ -68,7 +68,10 @@ public class UserInterface {
                     addSide();
                     break;
                 case 4:
-
+                    if (order.isEmpty()) {
+                        System.out.println("Cannot checkout. Order is empty.");
+                        break;
+                    }
                     System.out.println("\nProcessing order...\n");
 
                     order.displayOrder();
