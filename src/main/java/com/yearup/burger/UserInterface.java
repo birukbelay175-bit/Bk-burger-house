@@ -8,7 +8,8 @@ public class UserInterface {
     public void display() {
 
         boolean running = true;
-
+        System.out.println("Welcome to Biruk's Burger House!");
+        System.out.println("Build your perfect burger today!\n");
         while (running) {
 
             System.out.println("\n=================================");
