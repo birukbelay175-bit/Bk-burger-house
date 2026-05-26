@@ -25,6 +25,8 @@ public class Drink {
 
     @Override
     public String toString() {
-        return size + " " + flavor + " Drink | Price: $" + calculatePrice();
+
+        return size.toUpperCase() + " " + flavor.toUpperCase() + " DRINK"
+                + "\nPrice: $" + calculatePrice();
     }
 }

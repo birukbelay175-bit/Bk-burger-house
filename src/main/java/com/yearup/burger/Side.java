@@ -23,6 +23,8 @@ public class Side {
 
     @Override
     public String toString() {
-        return name + " Side | Price: $" + calculatePrice();
+
+        return name.toUpperCase() + " SIDE"
+                + "\nPrice: $" + calculatePrice();
     }
 }
