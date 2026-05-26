@@ -116,14 +116,25 @@ public class Order {
             burgerCount++;
         }
 
+        int drinkCount = 1;
+
         for (Drink drink : drinks) {
-            receipt.append(drink).append("\n");
+
+            receipt.append("Drink #").append(drinkCount).append("\n");
+            receipt.append(drink).append("\n\n");
+
+            drinkCount++;
         }
+
+        int sideCount = 1;
 
         for (Side side : sides) {
-            receipt.append(side).append("\n");
-        }
 
+            receipt.append("Side #").append(sideCount).append("\n");
+            receipt.append(side).append("\n\n");
+
+            sideCount++;
+        }
         receipt.append("\n=================================\n");
         receipt.append(String.format("ORDER TOTAL: $%.2f%n", calculateTotal()));
         receipt.append("=================================\n");
