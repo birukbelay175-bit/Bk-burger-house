@@ -60,8 +60,15 @@ public class Burger {
     @Override
     public String toString() {
 
-        return size + " " + type + " Burger | Double Patty: "
-                + doublePatty + " | Toppings: " + toppings
-                + " | Price: $" + calculatePrice();
+        StringBuilder toppingText = new StringBuilder();
+
+        for (Topping topping : toppings) {
+            toppingText.append("\n   - ").append(topping);
+        }
+
+        return size.toUpperCase() + " " + type.toUpperCase() + " BURGER"
+                + "\nDouble Patty: " + (doublePatty ? "Yes" : "No")
+                + "\nToppings:" + toppingText
+                + "\nPrice: $" + calculatePrice();
     }
 }
