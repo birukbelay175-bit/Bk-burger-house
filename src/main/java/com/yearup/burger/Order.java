@@ -66,16 +66,17 @@ public class Order {
         System.out.printf("ORDER TOTAL: $%.2f%n", calculateTotal());
         System.out.println("===============================");
     }
+
     // Creates receipt text
     public String getReceiptText() {
 
         StringBuilder receipt = new StringBuilder();
 
-        receipt.append("===== BIRUK'S BURGER HOUSE =====\n");
-        receipt.append("Thank you for your order!\n");
-        receipt.append("===============================\n");
+        receipt.append("=================================\n");
+        receipt.append("      BIRUK'S BURGER HOUSE\n");
+        receipt.append("=================================\n");
         receipt.append("Date: ").append(LocalDateTime.now()).append("\n");
-        receipt.append("===============================\n");
+        receipt.append("=================================\n\n");
 
         for (Burger burger : burgers) {
             receipt.append(burger).append("\n");
@@ -89,8 +90,10 @@ public class Order {
             receipt.append(side).append("\n");
         }
 
-        receipt.append("===============================\n");
-        receipt.append(String.format("Total: $%.2f%n", calculateTotal()));
+        receipt.append("\n=================================\n");
+        receipt.append(String.format("ORDER TOTAL: $%.2f%n", calculateTotal()));
+        receipt.append("=================================\n");
+        receipt.append("Thank you for your order!\n");
 
         return receipt.toString();
     }
