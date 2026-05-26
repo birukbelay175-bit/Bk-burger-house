@@ -1,0 +1,4 @@
+===== BIRUK'S BURGER HOUSE =====
+large beef Burger | Double Patty: true | Toppings: [bacon (Premium Extra) $2.0, lettuce (Regular) $0.75] | Price: $13.25
+-------------------------
+Total: $13.25

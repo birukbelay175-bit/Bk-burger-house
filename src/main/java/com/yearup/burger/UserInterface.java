@@ -81,50 +81,74 @@ public class UserInterface {
     }
     public void addBurger() {
 
-        // Ask for burger size
-        System.out.print("Enter burger size (Small, Medium, Large): ");
-        String size = scanner.nextLine();
+        String size = chooseSize();
 
-        // Ask for burger type
         System.out.print("Enter burger type (Beef, Chicken, Veggie): ");
         String type = scanner.nextLine();
 
-        // Ask for double patty option
         System.out.print("Double Patty? (yes/no): ");
         String answer = scanner.nextLine();
 
         boolean doublePatty = answer.equalsIgnoreCase("yes");
 
-        // Create burger object
         Burger burger = new Burger(size, type, doublePatty);
 
-        // Ask for toppings
         boolean addingToppings = true;
 
         while (addingToppings) {
 
-            System.out.print("Enter topping (or type done): ");
-            String topping = scanner.nextLine();
+            System.out.print("Enter topping name (or type done): ");
+            String toppingName = scanner.nextLine();
 
-            if (topping.equalsIgnoreCase("done")) {
-
+            if (toppingName.equalsIgnoreCase("done")) {
                 addingToppings = false;
-
             } else {
 
+                System.out.print("Is it premium? (yes/no): ");
+                String premiumAnswer = scanner.nextLine();
+
+                System.out.print("Extra topping? (yes/no): ");
+                String extraAnswer = scanner.nextLine();
+
+                boolean premium = premiumAnswer.equalsIgnoreCase("yes");
+                boolean extra = extraAnswer.equalsIgnoreCase("yes");
+
+                Topping topping = new Topping(toppingName, premium, extra);
+
                 burger.addTopping(topping);
+
             }
         }
 
-        // Add burger to order
         order.addBurger(burger);
 
         System.out.println("Burger added successfully!");
     }
+    public String chooseSize() {
+
+        System.out.println("Choose size:");
+        System.out.println("1) Small");
+        System.out.println("2) Medium");
+        System.out.println("3) Large");
+
+        System.out.print("Choose an option: ");
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+
+        switch (choice) {
+            case 1:
+                return "small";
+            case 2:
+                return "medium";
+            case 3:
+                return "large";
+            default:
+                return "small";
+        }
+    }
     public void addDrink() {
 
-        System.out.print("Enter drink size (Small, Medium, Large): ");
-        String size = scanner.nextLine();
+        String size = chooseSize();
 
         System.out.print("Enter drink flavor: ");
         String flavor = scanner.nextLine();
@@ -146,5 +170,17 @@ public class UserInterface {
         order.addSide(side);
 
         System.out.println("Side added successfully!");
+    }
+    public int getMenuChoice() {
+
+        while (!scanner.hasNextInt()) {
+            System.out.println("Please enter a number.");
+            scanner.nextLine();
+        }
+
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+
+        return choice;
     }
 }

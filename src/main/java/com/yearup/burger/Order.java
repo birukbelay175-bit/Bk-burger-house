@@ -71,6 +71,8 @@ public class Order {
         StringBuilder receipt = new StringBuilder();
 
         receipt.append("===== BIRUK'S BURGER HOUSE =====\n");
+        receipt.append("Thank you for your order!\n");
+        receipt.append("===============================\n");
 
         for (Burger burger : burgers) {
             receipt.append(burger).append("\n");
@@ -84,7 +86,7 @@ public class Order {
             receipt.append(side).append("\n");
         }
 
-        receipt.append("-------------------------\n");
+        receipt.append("===============================\n");
         receipt.append(String.format("Total: $%.2f%n", calculateTotal()));
 
         return receipt.toString();
