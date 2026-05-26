@@ -87,7 +87,8 @@ public class UserInterface {
                     ordering = false;
                     break;
                 case 0:
-                    System.out.println("Order canceled.");
+                    System.out.println("\nOrder canceled successfully.");
+                    System.out.println("Returning to home screen...");
                     ordering = false;
                     break;
                 default:
@@ -153,8 +154,7 @@ public class UserInterface {
 
         String size = chooseSize();
 
-        System.out.print("Enter drink flavor: ");
-        String flavor = scanner.nextLine();
+        String flavor = chooseDrinkFlavor();
 
         Drink drink = new Drink(size, flavor);
 
@@ -165,8 +165,7 @@ public class UserInterface {
     // Adds side to order
     public void addSide() {
 
-        System.out.print("Enter side (Fries, Onion Rings, Salad): ");
-        String sideName = scanner.nextLine();
+        String sideName = chooseSide();
 
         Side side = new Side(sideName);
 
@@ -252,6 +251,62 @@ public class UserInterface {
 
             default:
                 return null;
+        }
+    }
+    public String chooseDrinkFlavor() {
+
+        System.out.println("Choose Drink Flavor:");
+        System.out.println("1) Coke");
+        System.out.println("2) Sprite");
+        System.out.println("3) Fanta");
+        System.out.println("4) Water");
+
+        System.out.print("Choose an option: ");
+
+        int choice = getMenuChoice();
+
+        switch (choice) {
+
+            case 1:
+                return "coke";
+
+            case 2:
+                return "sprite";
+
+            case 3:
+                return "fanta";
+
+            case 4:
+                return "water";
+
+            default:
+                return "coke";
+        }
+    }
+    public String chooseSide() {
+
+        System.out.println("Choose Side:");
+        System.out.println("1) Fries");
+        System.out.println("2) Onion Rings");
+        System.out.println("3) Salad");
+
+        System.out.print("Choose an option: ");
+
+        int choice = getMenuChoice();
+
+        switch (choice) {
+
+            case 1:
+                return "fries";
+
+            case 2:
+                return "onion rings";
+
+            case 3:
+                return "salad";
+
+            default:
+                return "fries";
         }
     }
 }
