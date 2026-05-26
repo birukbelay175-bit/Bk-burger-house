@@ -7,8 +7,12 @@ public class Order {
     private ArrayList<Burger> burgers;
     private ArrayList<Drink> drinks;
     private ArrayList<Side> sides;
+    private String customerName;
+    private int orderNumber;
 
-    public Order() {
+    public Order(String customerName) {
+        this.customerName = customerName;
+        this.orderNumber = (int) (Math.random() * 9000) + 1000;
 
         burgers = new ArrayList<>();
         drinks = new ArrayList<>();
@@ -49,6 +53,9 @@ public class Order {
     public void displayOrder() {
 
         System.out.println("\n===== ORDER DETAILS =====");
+        System.out.println("Customer: " + customerName);
+        System.out.println("Order #: " + orderNumber);
+        System.out.println("-------------------------");
 
         for (Burger burger : burgers) {
             System.out.println(burger);
@@ -76,6 +83,8 @@ public class Order {
         receipt.append("      BIRUK'S BURGER HOUSE\n");
         receipt.append("=================================\n");
         receipt.append("Date: ").append(LocalDateTime.now()).append("\n");
+        receipt.append("Customer: ").append(customerName).append("\n");
+        receipt.append("Order #: ").append(orderNumber).append("\n");
         receipt.append("=================================\n\n");
 
         for (Burger burger : burgers) {

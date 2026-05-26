@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class UserInterface {
 
     Scanner scanner = new Scanner(System.in);
-    private Order order = new Order();
+    private Order order;
     public void display() {
 
         boolean running = true;
@@ -24,9 +24,14 @@ public class UserInterface {
             switch (choice) {
 
                 case 1:
+
+                    System.out.print("Enter customer name: ");
+                    String customerName = scanner.nextLine();
+
+                    order = new Order(customerName);
+
                     displayOrderScreen();
                     break;
-
                 case 0:
                     System.out.println("Goodbye!");
                     running = false;
