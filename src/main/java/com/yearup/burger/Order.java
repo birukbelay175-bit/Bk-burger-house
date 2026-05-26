@@ -142,4 +142,7 @@ public class Order {
 
         return receipt.toString();
     }
+    public boolean isEmpty() {
+        return burgers.isEmpty() && drinks.isEmpty() && sides.isEmpty();
+    }
 }
