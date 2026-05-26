@@ -1,0 +1,8 @@
+===== BIRUK'S BURGER HOUSE =====
+Thank you for your order!
+===============================
+Date: 2026-05-26T15:12:55.588415200
+===============================
+medium beef Burger | Double Patty: true | Toppings: [bacon (Premium Extra) $2.0, avocado (Premium) $1.5] | Price: $12.5
+===============================
+Total: $12.50

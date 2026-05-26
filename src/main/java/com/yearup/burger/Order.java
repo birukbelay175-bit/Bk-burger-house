@@ -1,7 +1,7 @@
 package com.yearup.burger;
 
 import java.util.ArrayList;
-
+import java.time.LocalDateTime;
 public class Order {
 
     private ArrayList<Burger> burgers;
@@ -62,8 +62,9 @@ public class Order {
             System.out.println(side);
         }
 
-        System.out.println("-------------------------");
-        System.out.printf("Total: $%.2f%n", calculateTotal());
+        System.out.println("===============================");
+        System.out.printf("ORDER TOTAL: $%.2f%n", calculateTotal());
+        System.out.println("===============================");
     }
     // Creates receipt text
     public String getReceiptText() {
@@ -72,6 +73,8 @@ public class Order {
 
         receipt.append("===== BIRUK'S BURGER HOUSE =====\n");
         receipt.append("Thank you for your order!\n");
+        receipt.append("===============================\n");
+        receipt.append("Date: ").append(LocalDateTime.now()).append("\n");
         receipt.append("===============================\n");
 
         for (Burger burger : burgers) {

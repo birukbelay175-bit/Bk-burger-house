@@ -1,7 +1,6 @@
 package com.yearup.burger;
 
 import java.util.Scanner;
-
 public class UserInterface {
 
     Scanner scanner = new Scanner(System.in);
@@ -12,9 +11,12 @@ public class UserInterface {
 
         while (running) {
 
-            System.out.println("\n===== BIRUK'S BURGER HOUSE =====");
+            System.out.println("\n=================================");
+            System.out.println("     BIRUK'S BURGER HOUSE");
+            System.out.println("=================================");
             System.out.println("1) New Order");
             System.out.println("0) Exit");
+            System.out.println("=================================");
 
             System.out.print("Choose an option: ");
             int choice = getMenuChoice();
@@ -40,7 +42,7 @@ public class UserInterface {
         boolean ordering = true;
 
         while (ordering) {
-            System.out.println("\n===== ORDER SCREEN =====");
+            System.out.println("\n========== ORDER SCREEN ==========");
             System.out.println("1) Add Burger");
             System.out.println("2) Add Drink");
             System.out.println("3) Add Side");
@@ -61,10 +63,16 @@ public class UserInterface {
                     addSide();
                     break;
                 case 4:
+
+                    System.out.println("\nProcessing order...\n");
+
                     order.displayOrder();
 
                     ReceiptFileManager receiptFileManager = new ReceiptFileManager();
                     receiptFileManager.saveReceipt(order);
+
+                    System.out.println("\nThank you for choosing Biruk's Burger House!");
+                    System.out.println("Your order is complete.");
 
                     ordering = false;
                     break;
@@ -81,8 +89,7 @@ public class UserInterface {
 
         String size = chooseSize();
 
-        System.out.print("Enter burger type (Beef, Chicken, Veggie): ");
-        String type = scanner.nextLine();
+        String type = chooseBurgerType();
 
         System.out.print("Double Patty? (yes/no): ");
         String answer = scanner.nextLine();
@@ -95,26 +102,15 @@ public class UserInterface {
 
         while (addingToppings) {
 
-            System.out.print("Enter topping name (or type done): ");
-            String toppingName = scanner.nextLine();
+            Topping topping = chooseTopping();
 
-            if (toppingName.equalsIgnoreCase("done")) {
+            if (topping == null) {
+
                 addingToppings = false;
+
             } else {
 
-                System.out.print("Is it premium? (yes/no): ");
-                String premiumAnswer = scanner.nextLine();
-
-                System.out.print("Extra topping? (yes/no): ");
-                String extraAnswer = scanner.nextLine();
-
-                boolean premium = premiumAnswer.equalsIgnoreCase("yes");
-                boolean extra = extraAnswer.equalsIgnoreCase("yes");
-
-                Topping topping = new Topping(toppingName, premium, extra);
-
                 burger.addTopping(topping);
-
             }
         }
 
@@ -175,8 +171,78 @@ public class UserInterface {
             scanner.nextLine();
         }
 
-        int choice = getMenuChoice();
+        int choice = scanner.nextInt();
+        scanner.nextLine();
 
         return choice;
     }
+    public String chooseBurgerType() {
+
+        System.out.println("Choose Burger Type:");
+        System.out.println("1) Beef");
+        System.out.println("2) Chicken");
+        System.out.println("3) Veggie");
+
+        System.out.print("Choose an option: ");
+
+        int choice = getMenuChoice();
+
+        switch (choice) {
+            case 1:
+                return "beef";
+            case 2:
+                return "chicken";
+            case 3:
+                return "veggie";
+            default:
+                return "beef";
+        }
+    }
+    public Topping chooseTopping() {
+
+        System.out.println("\nChoose Topping:");
+        System.out.println("1) Lettuce");
+        System.out.println("2) Tomato");
+        System.out.println("3) Onion");
+        System.out.println("4) Bacon");
+        System.out.println("5) Avocado");
+        System.out.println("0) Done");
+
+        System.out.print("Choose an option: ");
+
+        int choice = getMenuChoice();
+
+        switch (choice) {
+
+            case 1:
+                return new Topping("lettuce", false, false);
+
+            case 2:
+                return new Topping("tomato", false, false);
+
+            case 3:
+                return new Topping("onion", false, false);
+
+            case 4:
+                System.out.print("Extra bacon? (yes/no): ");
+                String extraAnswer = scanner.nextLine();
+
+                boolean extra = extraAnswer.equalsIgnoreCase("yes");
+
+                return new Topping("bacon", true, extra);
+
+            case 5:
+
+                System.out.print("Extra avocado? (yes/no): ");
+                String extraAnswer2 = scanner.nextLine();
+
+                boolean extra2 = extraAnswer2.equalsIgnoreCase("yes");
+
+                return new Topping("avocado", true, extra2);
+
+            default:
+                return null;
+        }
+    }
 }
+
