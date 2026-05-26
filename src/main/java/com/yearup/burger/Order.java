@@ -57,8 +57,15 @@ public class Order {
         System.out.println("Order #: " + orderNumber);
         System.out.println("-------------------------");
 
+        int burgerCount = 1;
+
         for (Burger burger : burgers) {
+
+            System.out.println("Burger #" + burgerCount);
             System.out.println(burger);
+            System.out.println();
+
+            burgerCount++;
         }
 
         for (Drink drink : drinks) {
@@ -87,8 +94,14 @@ public class Order {
         receipt.append("Order #: ").append(orderNumber).append("\n");
         receipt.append("=================================\n\n");
 
+        int burgerCount = 1;
+
         for (Burger burger : burgers) {
-            receipt.append(burger).append("\n");
+
+            receipt.append("Burger #").append(burgerCount).append("\n");
+            receipt.append(burger).append("\n\n");
+
+            burgerCount++;
         }
 
         for (Drink drink : drinks) {
