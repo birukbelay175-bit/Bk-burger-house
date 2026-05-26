@@ -4,40 +4,31 @@ import java.util.ArrayList;
 
 public class Burger {
 
-    // Burger size (Small, Medium, Large)
     private String size;
-
-    // Burger type (Beef, Chicken, Veggie, etc.)
     private String type;
-
-    // Special option
     private boolean doublePatty;
 
-    // Stores all toppings
-    private ArrayList<String> toppings;
+    // Store topping objects
+    private ArrayList<Topping> toppings;
 
-    // Constructor
     public Burger(String size, String type, boolean doublePatty) {
 
         this.size = size;
         this.type = type;
         this.doublePatty = doublePatty;
 
-        // Initialize toppings list
         toppings = new ArrayList<>();
     }
 
-    // Adds toppings to burger
-    public void addTopping(String topping) {
+    // Add topping object
+    public void addTopping(Topping topping) {
         toppings.add(topping);
     }
 
-    // Calculates burger price
     public double calculatePrice() {
 
         double basePrice = 0;
 
-        // Price based on burger size
         switch (size.toLowerCase()) {
 
             case "small":
@@ -53,18 +44,19 @@ public class Burger {
                 break;
         }
 
-        // Add extra charge for double patty
+        // Extra charge for double patty
         if (doublePatty) {
             basePrice += 2.00;
         }
 
-        // Add topping price
-        basePrice += toppings.size() * 0.75;
+        // Add topping prices
+        for (Topping topping : toppings) {
+            basePrice += topping.calculatePrice();
+        }
 
         return basePrice;
     }
 
-    // Displays burger details
     @Override
     public String toString() {
 
