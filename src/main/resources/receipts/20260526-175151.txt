@@ -1,0 +1,28 @@
+=================================
+      BIRUK'S BURGER HOUSE
+=================================
+Date: 2026-05-26T17:51:51.327373100
+Customer: biruk
+Order #: 8302
+=================================
+
+Burger #1
+MEDIUM CHICKEN BURGER
+Double Patty: Yes
+Toppings:
+   - onion (Regular) $0.75
+Price: $9.75
+
+Drink #1
+MEDIUM COKE DRINK
+Price: $2.5
+
+Side #1
+FRIES SIDE
+Price: $3.0
+
+
+=================================
+ORDER TOTAL: $15.25
+=================================
+Thank you for your order!

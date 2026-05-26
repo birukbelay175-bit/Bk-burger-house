@@ -27,6 +27,6 @@ public class Drink {
     public String toString() {
 
         return size.toUpperCase() + " " + flavor.toUpperCase() + " DRINK"
-                + "\nPrice: $" + calculatePrice();
+                + String.format("\nPrice: $%.2f", calculatePrice());
     }
 }

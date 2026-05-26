@@ -34,7 +34,8 @@ public class UserInterface {
                     displayOrderScreen();
                     break;
                 case 0:
-                    System.out.println("Goodbye!");
+                    System.out.println("\nThank you for visiting Biruk's Burger House!");
+                    System.out.println("See you again soon!");
                     running = false;
                     break;
 

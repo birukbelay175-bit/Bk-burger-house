@@ -69,6 +69,6 @@ public class Burger {
         return size.toUpperCase() + " " + type.toUpperCase() + " BURGER"
                 + "\nDouble Patty: " + (doublePatty ? "Yes" : "No")
                 + "\nToppings:" + toppingText
-                + "\nPrice: $" + calculatePrice();
+                + String.format("\nPrice: $%.2f", calculatePrice());
     }
 }

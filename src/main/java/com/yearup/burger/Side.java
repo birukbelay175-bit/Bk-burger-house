@@ -25,6 +25,6 @@ public class Side {
     public String toString() {
 
         return name.toUpperCase() + " SIDE"
-                + "\nPrice: $" + calculatePrice();
+                + String.format("\nPrice: $%.2f", calculatePrice());
     }
 }

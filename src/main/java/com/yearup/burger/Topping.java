@@ -33,6 +33,7 @@ public class Topping {
         String type = premium ? "Premium" : "Regular";
         String extraText = extra ? " Extra" : "";
 
-        return name + " (" + type + extraText + ") $" + calculatePrice();
+        return name + " (" + type + extraText + ") "
+                + String.format("$%.2f", calculatePrice());
     }
 }
