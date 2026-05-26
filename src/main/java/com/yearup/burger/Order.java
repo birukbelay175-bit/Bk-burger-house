@@ -68,12 +68,24 @@ public class Order {
             burgerCount++;
         }
 
+        int drinkCount = 1;
+
         for (Drink drink : drinks) {
+            System.out.println("Drink #" + drinkCount);
             System.out.println(drink);
+            System.out.println();
+
+            drinkCount++;
         }
 
+        int sideCount = 1;
+
         for (Side side : sides) {
+            System.out.println("Side #" + sideCount);
             System.out.println(side);
+            System.out.println();
+
+            sideCount++;
         }
 
         System.out.println("===============================");
