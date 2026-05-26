@@ -17,8 +17,7 @@ public class UserInterface {
             System.out.println("0) Exit");
 
             System.out.print("Choose an option: ");
-            int choice = scanner.nextInt();
-            scanner.nextLine();
+            int choice = getMenuChoice();
 
             switch (choice) {
 
@@ -49,8 +48,7 @@ public class UserInterface {
             System.out.println("0) Cancel Order");
 
             System.out.print("Choose an option: ");
-            int choice = scanner.nextInt();
-            scanner.nextLine();
+            int choice = getMenuChoice();
 
             switch (choice) {
                 case 1:
@@ -132,8 +130,7 @@ public class UserInterface {
         System.out.println("3) Large");
 
         System.out.print("Choose an option: ");
-        int choice = scanner.nextInt();
-        scanner.nextLine();
+        int choice = getMenuChoice();
 
         switch (choice) {
             case 1:
@@ -178,8 +175,7 @@ public class UserInterface {
             scanner.nextLine();
         }
 
-        int choice = scanner.nextInt();
-        scanner.nextLine();
+        int choice = getMenuChoice();
 
         return choice;
     }
