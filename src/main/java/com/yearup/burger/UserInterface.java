@@ -9,6 +9,8 @@ public class UserInterface {
     private final String CYAN = "\u001B[36m";
     private final String YELLOW = "\u001B[33m";
     private Order order;
+
+    // Displays the main home screen menu
     public void display() {
 
         boolean running = true;
@@ -111,6 +113,7 @@ public class UserInterface {
             }
         }
     }
+    // Handles burger creation and toppings
     public void addBurger() {
 
         String size = chooseSize();
@@ -210,6 +213,7 @@ public class UserInterface {
         order.addSide(side);
         System.out.println(GREEN + "Side added successfully!" + RESET);
     }
+    // Validates and returns numeric menu input
     public int getMenuChoice() {
 
         while (!scanner.hasNextInt()) {
@@ -345,6 +349,7 @@ public class UserInterface {
 
         return choice == 1;
     }
+    // Prints styled section headers
     public void printHeader(String title) {
             System.out.println(CYAN + "\n╔═══════════════════════════════╗");
             System.out.println("        " + title);
