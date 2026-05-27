@@ -4,6 +4,10 @@ import java.util.Scanner;
 public class UserInterface {
 
     Scanner scanner = new Scanner(System.in);
+    private final String RESET = "\u001B[0m";
+    private final String GREEN = "\u001B[32m";
+    private final String CYAN = "\u001B[36m";
+    private final String YELLOW = "\u001B[33m";
     private Order order;
     public void display() {
 
@@ -12,12 +16,9 @@ public class UserInterface {
         System.out.println("Build your perfect burger today!\n");
         while (running) {
 
-            System.out.println("\n=================================");
-            System.out.println("     BIRUK'S BURGER HOUSE");
-            System.out.println("=================================");
+            printHeader("BIRUK'S BURGER HOUSE");
             System.out.println("1) New Order");
             System.out.println("0) Exit");
-            System.out.println("=================================");
 
             System.out.print("Choose an option: ");
             int choice = getMenuChoice();
@@ -43,7 +44,7 @@ public class UserInterface {
         boolean ordering = true;
 
         while (ordering) {
-            System.out.println("\n========== ORDER SCREEN ==========");
+            printHeader("ORDER SCREEN");
             System.out.println("1) Add Burger");
             System.out.println("2) Add Drink");
             System.out.println("3) Add Side");
@@ -66,7 +67,7 @@ public class UserInterface {
                 case 4:
 
                     if (order.isEmpty()) {
-                        System.out.println("Cannot checkout. Order is empty.");
+                        System.out.println(YELLOW + "Cannot checkout. Order is empty." + RESET);
                         break;
                     }
                     System.out.print("\nEnter customer name: ");
@@ -141,7 +142,7 @@ public class UserInterface {
 
         order.addBurger(burger);
 
-        System.out.println("Burger added successfully!");
+        System.out.println(GREEN + "Burger added successfully!" + RESET);
     }
     public String chooseSize() {
 
@@ -185,7 +186,7 @@ public class UserInterface {
 
         order.addDrink(drink);
 
-        System.out.println("Drink added successfully!");
+        System.out.println(GREEN + "Drink added successfully!" + RESET);
     }
     // Adds side to order
     public void addSide() {
@@ -195,8 +196,7 @@ public class UserInterface {
         Side side = new Side(sideName);
 
         order.addSide(side);
-
-        System.out.println("Side added successfully!");
+        System.out.println(GREEN + "Side added successfully!" + RESET);
     }
     public int getMenuChoice() {
 
@@ -346,6 +346,15 @@ public class UserInterface {
         int choice = getMenuChoice();
 
         return choice == 1;
+    }
+    public void printHeader(String title) {
+        System.out.println("\n╔═══════════════════════════════╗");
+        System.out.println("        " + title);
+        System.out.println("╚═══════════════════════════════╝");
+    }
+
+    public void printDivider() {
+        System.out.println("---------------------------------");
     }
 }
 
