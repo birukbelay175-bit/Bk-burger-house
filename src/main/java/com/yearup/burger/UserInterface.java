@@ -117,11 +117,21 @@ public class UserInterface {
 
         String type = chooseBurgerType();
 
-        System.out.print("Double Patty? (y/n): ");
-        String answer = scanner.nextLine();
+        String answer;
+
+        while (true) {
+
+            System.out.print("Double Patty? (y/n): ");
+            answer = scanner.nextLine();
+
+            if (answer.equalsIgnoreCase("y") || answer.equalsIgnoreCase("n")) {
+                break;
+            }
+
+            System.out.println(YELLOW + "Please enter y or n only." + RESET);
+        }
 
         boolean doublePatty = answer.equalsIgnoreCase("y");
-
         Burger burger = new Burger(size, type, doublePatty);
 
         boolean addingToppings = true;
@@ -275,58 +285,51 @@ public class UserInterface {
     }
     public String chooseDrinkFlavor() {
 
-        System.out.println("Choose Drink Flavor:");
-        System.out.println("1) Coke");
-        System.out.println("2) Sprite");
-        System.out.println("3) Fanta");
-        System.out.println("4) Water");
+        while (true) {
+            System.out.println("Choose Drink Flavor:");
+            System.out.println("1) Coke");
+            System.out.println("2) Sprite");
+            System.out.println("3) Fanta");
+            System.out.println("4) Water");
 
-        System.out.print("Choose an option: ");
+            System.out.print("Choose an option: ");
+            int choice = getMenuChoice();
 
-        int choice = getMenuChoice();
-
-        switch (choice) {
-
-            case 1:
-                return "coke";
-
-            case 2:
-                return "sprite";
-
-            case 3:
-                return "fanta";
-
-            case 4:
-                return "water";
-
-            default:
-                return "coke";
+            switch (choice) {
+                case 1:
+                    return "coke";
+                case 2:
+                    return "sprite";
+                case 3:
+                    return "fanta";
+                case 4:
+                    return "water";
+                default:
+                    System.out.println(YELLOW + "Invalid drink. Please choose 1-4." + RESET);
+            }
         }
     }
     public String chooseSide() {
 
-        System.out.println("Choose Side:");
-        System.out.println("1) Fries");
-        System.out.println("2) Onion Rings");
-        System.out.println("3) Salad");
+        while (true) {
+            System.out.println("Choose Side:");
+            System.out.println("1) Fries");
+            System.out.println("2) Onion Rings");
+            System.out.println("3) Salad");
 
-        System.out.print("Choose an option: ");
+            System.out.print("Choose an option: ");
+            int choice = getMenuChoice();
 
-        int choice = getMenuChoice();
-
-        switch (choice) {
-
-            case 1:
-                return "fries";
-
-            case 2:
-                return "onion rings";
-
-            case 3:
-                return "salad";
-
-            default:
-                return "fries";
+            switch (choice) {
+                case 1:
+                    return "fries";
+                case 2:
+                    return "onion rings";
+                case 3:
+                    return "salad";
+                default:
+                    System.out.println(YELLOW + "Invalid side. Please choose 1, 2, or 3." + RESET);
+            }
         }
     }
     public boolean reviewOrderBeforePayment() {
