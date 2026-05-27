@@ -25,12 +25,7 @@ public class UserInterface {
             switch (choice) {
 
                 case 1:
-
-                    System.out.print("Enter customer name: ");
-                    String customerName = scanner.nextLine();
-
-                    order = new Order(customerName);
-
+                    order = new Order("");
                     displayOrderScreen();
                     break;
                 case 0:
@@ -38,7 +33,6 @@ public class UserInterface {
                     System.out.println("See you again soon!");
                     running = false;
                     break;
-
                 default:
                     System.out.println("Invalid option.");
             }
@@ -75,6 +69,10 @@ public class UserInterface {
                         System.out.println("Cannot checkout. Order is empty.");
                         break;
                     }
+                    System.out.print("\nEnter customer name: ");
+                    String customerName = scanner.nextLine();
+
+                    order.setCustomerName(customerName);
 
                     boolean paid = reviewOrderBeforePayment();
 

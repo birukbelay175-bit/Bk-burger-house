@@ -145,4 +145,7 @@ public class Order {
     public boolean isEmpty() {
         return burgers.isEmpty() && drinks.isEmpty() && sides.isEmpty();
     }
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
 }
