@@ -96,14 +96,14 @@ public class UserInterface {
 
                     } else {
 
-                        System.out.println("\nPayment canceled.");
-                        System.out.println("Returning to order screen...");
+                        System.out.println(YELLOW + "\nPayment canceled.");
+                        System.out.println("Returning to order screen..." + RESET);
                     }
 
                     break;
                 case 0:
-                    System.out.println("\nOrder canceled successfully.");
-                    System.out.println("Returning to home screen...");
+                    System.out.println(YELLOW + "\nOrder canceled successfully.");
+                    System.out.println("Returning to home screen..." + RESET);
                     ordering = false;
                     break;
                 default:
@@ -146,23 +146,25 @@ public class UserInterface {
     }
     public String chooseSize() {
 
-        System.out.println("Choose size:");
-        System.out.println("1) Small");
-        System.out.println("2) Medium");
-        System.out.println("3) Large");
+        while (true) {
+            System.out.println("Choose size:");
+            System.out.println("1) Small");
+            System.out.println("2) Medium");
+            System.out.println("3) Large");
 
-        System.out.print("Choose an option: ");
-        int choice = getMenuChoice();
+            System.out.print("Choose an option: ");
+            int choice = getMenuChoice();
 
-        switch (choice) {
-            case 1:
-                return "small";
-            case 2:
-                return "medium";
-            case 3:
-                return "large";
-            default:
-                return "small";
+            switch (choice) {
+                case 1:
+                    return "small";
+                case 2:
+                    return "medium";
+                case 3:
+                    return "large";
+                default:
+                    System.out.println(YELLOW + "Invalid size. Please choose 1, 2, or 3." + RESET);
+            }
         }
     }
     public void addDrink() {
@@ -212,70 +214,63 @@ public class UserInterface {
     }
     public String chooseBurgerType() {
 
-        System.out.println("Choose Burger Type:");
-        System.out.println("1) Beef");
-        System.out.println("2) Chicken");
-        System.out.println("3) Veggie");
+        while (true) {
+            System.out.println("Choose Burger Type:");
+            System.out.println("1) Beef");
+            System.out.println("2) Chicken");
+            System.out.println("3) Veggie");
 
-        System.out.print("Choose an option: ");
+            System.out.print("Choose an option: ");
+            int choice = getMenuChoice();
 
-        int choice = getMenuChoice();
-
-        switch (choice) {
-            case 1:
-                return "beef";
-            case 2:
-                return "chicken";
-            case 3:
-                return "veggie";
-            default:
-                return "beef";
+            switch (choice) {
+                case 1:
+                    return "beef";
+                case 2:
+                    return "chicken";
+                case 3:
+                    return "veggie";
+                default:
+                    System.out.println(YELLOW + "Invalid burger type. Please choose 1, 2, or 3." + RESET);
+            }
         }
     }
     public Topping chooseTopping() {
 
-        System.out.println("\nChoose Topping:");
-        System.out.println("1) Lettuce");
-        System.out.println("2) Tomato");
-        System.out.println("3) Onion");
-        System.out.println("4) Bacon");
-        System.out.println("5) Avocado");
-        System.out.println("0) Done");
+        while (true) {
+            System.out.println("\nChoose Topping:");
+            System.out.println("1) Lettuce");
+            System.out.println("2) Tomato");
+            System.out.println("3) Onion");
+            System.out.println("4) Bacon");
+            System.out.println("5) Avocado");
+            System.out.println("0) Done");
 
-        System.out.print("Choose an option: ");
+            System.out.print("Choose an option: ");
+            int choice = getMenuChoice();
 
-        int choice = getMenuChoice();
-
-        switch (choice) {
-
-            case 1:
-                return new Topping("lettuce", false, false);
-
-            case 2:
-                return new Topping("tomato", false, false);
-
-            case 3:
-                return new Topping("onion", false, false);
-
-            case 4:
-                System.out.print("Extra bacon? (y/n): ");
-                String extraAnswer = scanner.nextLine();
-
-                boolean extra = extraAnswer.equalsIgnoreCase("y");
-
-                return new Topping("bacon", true, extra);
-
-            case 5:
-
-                System.out.print("Extra avocado? (yes/no): ");
-                String extraAnswer2 = scanner.nextLine();
-
-                boolean extra2 = extraAnswer2.equalsIgnoreCase("yes");
-
-                return new Topping("avocado", true, extra2);
-
-            default:
-                return null;
+            switch (choice) {
+                case 1:
+                    return new Topping("lettuce", false, false);
+                case 2:
+                    return new Topping("tomato", false, false);
+                case 3:
+                    return new Topping("onion", false, false);
+                case 4:
+                    System.out.print("Extra bacon? (y/n): ");
+                    String extraAnswer = scanner.nextLine();
+                    boolean extra = extraAnswer.equalsIgnoreCase("y");
+                    return new Topping("bacon", true, extra);
+                case 5:
+                    System.out.print("Extra avocado? (y/n): ");
+                    String extraAnswer2 = scanner.nextLine();
+                    boolean extra2 = extraAnswer2.equalsIgnoreCase("y");
+                    return new Topping("avocado", true, extra2);
+                case 0:
+                    return null;
+                default:
+                    System.out.println(YELLOW + "Invalid topping. Please choose 0-5." + RESET);
+            }
         }
     }
     public String chooseDrinkFlavor() {
@@ -340,7 +335,7 @@ public class UserInterface {
         order.displayOrder();
 
         System.out.println("\n1) Pay and Save Receipt");
-        System.out.println("0) Cancel and Return to Order Screen");
+        System.out.println(YELLOW + "0) Cancel and Return to Order Screen" + RESET);
         System.out.print("Choose an option: ");
 
         int choice = getMenuChoice();
@@ -348,9 +343,9 @@ public class UserInterface {
         return choice == 1;
     }
     public void printHeader(String title) {
-        System.out.println("\n╔═══════════════════════════════╗");
-        System.out.println("        " + title);
-        System.out.println("╚═══════════════════════════════╝");
+            System.out.println(CYAN + "\n╔═══════════════════════════════╗");
+            System.out.println("        " + title);
+            System.out.println("╚═══════════════════════════════╝" + RESET);
     }
 
     public void printDivider() {
