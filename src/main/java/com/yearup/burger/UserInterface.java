@@ -75,6 +75,10 @@ public class UserInterface {
                         break;
                     }
                     System.out.println("\nProcessing order...\n");
+                    System.out.println("Preparing burgers...");
+                    System.out.println("Preparing drinks...");
+                    System.out.println("Preparing sides...");
+                    System.out.println("Saving receipt...");
 
                     order.displayOrder();
 
@@ -102,10 +106,10 @@ public class UserInterface {
 
         String type = chooseBurgerType();
 
-        System.out.print("Double Patty? (yes/no): ");
+        System.out.print("Double Patty? (y/n): ");
         String answer = scanner.nextLine();
 
-        boolean doublePatty = answer.equalsIgnoreCase("yes");
+        boolean doublePatty = answer.equalsIgnoreCase("y");
 
         Burger burger = new Burger(size, type, doublePatty);
 
@@ -233,10 +237,10 @@ public class UserInterface {
                 return new Topping("onion", false, false);
 
             case 4:
-                System.out.print("Extra bacon? (yes/no): ");
+                System.out.print("Extra bacon? (y/n): ");
                 String extraAnswer = scanner.nextLine();
 
-                boolean extra = extraAnswer.equalsIgnoreCase("yes");
+                boolean extra = extraAnswer.equalsIgnoreCase("y");
 
                 return new Topping("bacon", true, extra);
 
