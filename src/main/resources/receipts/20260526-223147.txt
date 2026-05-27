@@ -1,0 +1,24 @@
+=================================
+      BIRUK'S BURGER HOUSE
+=================================
+Date: 2026-05-26T22:31:47.248669700
+Customer: bb
+Order #: 2646
+=================================
+
+Burger #1
+SMALL BEEF BURGER
+Double Patty: No
+Toppings:
+   - onion (Regular) $0.75
+Price: $6.25
+
+Drink #1
+SMALL WATER DRINK
+Price: $0.00
+
+
+=================================
+ORDER TOTAL: $6.25
+=================================
+Thank you for your order!

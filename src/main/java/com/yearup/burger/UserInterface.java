@@ -70,25 +70,37 @@ public class UserInterface {
                     addSide();
                     break;
                 case 4:
+
                     if (order.isEmpty()) {
                         System.out.println("Cannot checkout. Order is empty.");
                         break;
                     }
-                    System.out.println("\nProcessing order...\n");
-                    System.out.println("Preparing burgers...");
-                    System.out.println("Preparing drinks...");
-                    System.out.println("Preparing sides...");
-                    System.out.println("Saving receipt...");
 
-                    order.displayOrder();
+                    boolean paid = reviewOrderBeforePayment();
 
-                    ReceiptFileManager receiptFileManager = new ReceiptFileManager();
-                    receiptFileManager.saveReceipt(order);
+                    if (paid) {
 
-                    System.out.println("\nThank you for choosing Biruk's Burger House!");
-                    System.out.println("Your order is complete.");
+                        System.out.println("\nProcessing payment...\n");
+                        System.out.println("Preparing burgers...");
+                        System.out.println("Preparing drinks...");
+                        System.out.println("Preparing sides...");
+                        System.out.println("Saving receipt...");
 
-                    ordering = false;
+                        ReceiptFileManager receiptFileManager = new ReceiptFileManager();
+                        receiptFileManager.saveReceipt(order);
+
+                        System.out.println("\nPayment successful!");
+                        System.out.println("Thank you for choosing Biruk's Burger House!");
+                        System.out.println("Your order is complete.");
+
+                        ordering = false;
+
+                    } else {
+
+                        System.out.println("\nPayment canceled.");
+                        System.out.println("Returning to order screen...");
+                    }
+
                     break;
                 case 0:
                     System.out.println("\nOrder canceled successfully.");
@@ -156,9 +168,20 @@ public class UserInterface {
     }
     public void addDrink() {
 
-        String size = chooseSize();
-
         String flavor = chooseDrinkFlavor();
+
+        String size;
+
+        if (flavor.equalsIgnoreCase("water")) {
+
+            size = "medium";
+
+            System.out.println("Water comes in one standard size.");
+
+        } else {
+
+            size = chooseSize();
+        }
 
         Drink drink = new Drink(size, flavor);
 
@@ -312,6 +335,19 @@ public class UserInterface {
             default:
                 return "fries";
         }
+    }
+    public boolean reviewOrderBeforePayment() {
+
+        System.out.println("\n========== ORDER REVIEW ==========");
+        order.displayOrder();
+
+        System.out.println("\n1) Pay and Save Receipt");
+        System.out.println("0) Cancel and Return to Order Screen");
+        System.out.print("Choose an option: ");
+
+        int choice = getMenuChoice();
+
+        return choice == 1;
     }
 }
 

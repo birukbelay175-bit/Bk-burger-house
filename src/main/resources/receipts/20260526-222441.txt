@@ -1,0 +1,28 @@
+=================================
+      BIRUK'S BURGER HOUSE
+=================================
+Date: 2026-05-26T22:24:41.950216
+Customer: bura
+Order #: 8166
+=================================
+
+Burger #1
+LARGE VEGGIE BURGER
+Double Patty: Yes
+Toppings:
+   - tomato (Regular) $0.75
+Price: $11.25
+
+Drink #1
+LARGE WATER DRINK
+Price: $3.00
+
+Side #1
+SALAD SIDE
+Price: $4.00
+
+
+=================================
+ORDER TOTAL: $18.25
+=================================
+Thank you for your order!
