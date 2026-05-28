@@ -1,13 +1,14 @@
 package com.yearup.burger;
 
 import java.util.Scanner;
+
 public class UserInterface {
 
-    Scanner scanner = new Scanner(System.in);
     private final String RESET = "\u001B[0m";
     private final String GREEN = "\u001B[32m";
     private final String CYAN = "\u001B[36m";
     private final String YELLOW = "\u001B[33m";
+    Scanner scanner = new Scanner(System.in);
     private Order order;
 
     // Displays the main home screen menu
@@ -41,6 +42,7 @@ public class UserInterface {
             }
         }
     }
+
     public void displayOrderScreen() {
 
         boolean ordering = true;
@@ -104,15 +106,40 @@ public class UserInterface {
 
                     break;
                 case 0:
-                    System.out.println(YELLOW + "\nOrder canceled successfully.");
-                    System.out.println("Returning to home screen..." + RESET);
-                    ordering = false;
+
+                    String cancelAnswer;
+
+                    while (true) {
+
+                        System.out.print(YELLOW + "\nAre you sure you want to cancel the order? (y/n): " + RESET);
+                        cancelAnswer = scanner.nextLine();
+
+                        if (cancelAnswer.equalsIgnoreCase("y") || cancelAnswer.equalsIgnoreCase("n")) {
+                            break;
+                        }
+
+                        System.out.println(YELLOW + "Please enter y or n only." + RESET);
+                    }
+
+                    if (cancelAnswer.equalsIgnoreCase("y")) {
+
+                        System.out.println(YELLOW + "\nOrder canceled successfully.");
+                        System.out.println("Returning to home screen..." + RESET);
+
+                        ordering = false;
+
+                    } else {
+
+                        System.out.println(GREEN + "\nReturning to order screen..." + RESET);
+                    }
+
                     break;
                 default:
                     System.out.println("Invalid option.");
             }
         }
     }
+
     // Handles burger creation and toppings
     public void addBurger() {
 
@@ -157,6 +184,7 @@ public class UserInterface {
 
         System.out.println(GREEN + "Burger added successfully!" + RESET);
     }
+
     public String chooseSize() {
 
         while (true) {
@@ -180,6 +208,7 @@ public class UserInterface {
             }
         }
     }
+
     public void addDrink() {
 
         String flavor = chooseDrinkFlavor();
@@ -203,6 +232,7 @@ public class UserInterface {
 
         System.out.println(GREEN + "Drink added successfully!" + RESET);
     }
+
     // Adds side to order
     public void addSide() {
 
@@ -213,6 +243,7 @@ public class UserInterface {
         order.addSide(side);
         System.out.println(GREEN + "Side added successfully!" + RESET);
     }
+
     // Validates and returns numeric menu input
     public int getMenuChoice() {
 
@@ -226,6 +257,7 @@ public class UserInterface {
 
         return choice;
     }
+
     public String chooseBurgerType() {
 
         while (true) {
@@ -249,6 +281,7 @@ public class UserInterface {
             }
         }
     }
+
     public Topping chooseTopping() {
 
         while (true) {
@@ -287,6 +320,7 @@ public class UserInterface {
             }
         }
     }
+
     public String chooseDrinkFlavor() {
 
         while (true) {
@@ -313,6 +347,7 @@ public class UserInterface {
             }
         }
     }
+
     public String chooseSide() {
 
         while (true) {
@@ -336,24 +371,58 @@ public class UserInterface {
             }
         }
     }
+
     public boolean reviewOrderBeforePayment() {
 
-        System.out.println("\n========== ORDER REVIEW ==========");
-        order.displayOrder();
+        while (true) {
 
-        System.out.println("\n1) Pay and Save Receipt");
-        System.out.println(YELLOW + "0) Cancel and Return to Order Screen" + RESET);
-        System.out.print("Choose an option: ");
+            System.out.println("\n========== ORDER REVIEW ==========");
+            order.displayOrder();
 
-        int choice = getMenuChoice();
+            System.out.println("\n1) Pay and Save Receipt");
+            System.out.println(YELLOW + "0) Cancel and Return to Order Screen" + RESET);
+            System.out.print("Choose an option: ");
 
-        return choice == 1;
+            int choice = getMenuChoice();
+
+            switch (choice) {
+
+                case 1:
+                    return true;
+
+                case 0:
+
+                    String cancelPayment;
+
+                    while (true) {
+
+                        System.out.print(YELLOW + "\nAre you sure you want to cancel payment? (y/n): " + RESET);
+                        cancelPayment = scanner.nextLine();
+
+                        if (cancelPayment.equalsIgnoreCase("y") || cancelPayment.equalsIgnoreCase("n")) {
+                            break;
+                        }
+
+                        System.out.println(YELLOW + "Please enter y or n only." + RESET);
+                    }
+
+                    if (cancelPayment.equalsIgnoreCase("y")) {
+                        return false;
+                    }
+
+                    break;
+
+                default:
+                    System.out.println(YELLOW + "Invalid option. Please choose 1 or 0." + RESET);
+            }
+        }
     }
+
     // Prints styled section headers
     public void printHeader(String title) {
-            System.out.println(CYAN + "\n╔═══════════════════════════════╗");
-            System.out.println("        " + title);
-            System.out.println("╚═══════════════════════════════╝" + RESET);
+        System.out.println(CYAN + "\n╔═══════════════════════════════╗");
+        System.out.println("        " + title);
+        System.out.println("╚═══════════════════════════════╝" + RESET);
     }
 
     public void printDivider() {

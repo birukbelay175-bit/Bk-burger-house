@@ -1,0 +1,29 @@
+=================================
+      BIRUK'S BURGER HOUSE
+=================================
+Date: 2026-05-27T21:41:08.986338400
+Customer: bgtr
+Order #: 9641
+=================================
+
+Burger #1
+LARGE CHICKEN BURGER
+Double Patty: No
+Toppings:
+   - lettuce (Regular) $0.75
+   - avocado (Premium Extra) $2.00
+Price: $11.25
+
+Drink #1
+MEDIUM FANTA DRINK
+Price: $2.50
+
+Side #1
+ONION RINGS SIDE
+Price: $3.50
+
+
+=================================
+ORDER TOTAL: $17.25
+=================================
+Thank you for your order!
