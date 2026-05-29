@@ -1,0 +1,29 @@
+=================================
+      BIRUK'S BURGER HOUSE
+=================================
+Date: 2026-05-28T13:32:28.266639
+Customer: bura
+Order #: 3526
+=================================
+
+Burger #1
+MEDIUM BEEF BURGER
+Double Patty: Yes
+Toppings:
+   - tomato (Regular) $0.75
+   - onion (Regular) $0.75
+Price: $10.50
+
+Drink #1
+LARGE FANTA DRINK
+Price: $3.00
+
+Side #1
+ONION RINGS SIDE
+Price: $3.50
+
+
+=================================
+ORDER TOTAL: $17.00
+=================================
+Thank you for your order!

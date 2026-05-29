@@ -1,0 +1,29 @@
+=================================
+      BIRUK'S BURGER HOUSE
+=================================
+Date: 2026-05-28T15:29:28.948538700
+Customer: kal
+Order #: 8161
+=================================
+
+Burger #1
+MEDIUM CHICKEN BURGER
+Double Patty: No
+Toppings:
+   - tomato (Regular) $0.75
+   - lettuce (Regular) $0.75
+Price: $8.50
+
+Drink #1
+MEDIUM COKE DRINK
+Price: $2.50
+
+Side #1
+FRIES SIDE
+Price: $3.00
+
+
+=================================
+ORDER TOTAL: $14.00
+=================================
+Thank you for your order!

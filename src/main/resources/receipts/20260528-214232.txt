@@ -1,0 +1,25 @@
+=================================
+      BIRUK'S BURGER HOUSE
+=================================
+Date: 2026-05-28T21:42:32.485071600
+Customer: bk
+Order #: 9814
+=================================
+
+Burger #1
+LARGE BEEF BURGER
+Double Patty: Yes
+Toppings:
+   - bacon (Premium) $1.50
+   - lettuce (Regular) $0.75
+Price: $12.75
+
+Side #1
+FRIES SIDE
+Price: $3.00
+
+
+=================================
+ORDER TOTAL: $15.75
+=================================
+Thank you for your order!

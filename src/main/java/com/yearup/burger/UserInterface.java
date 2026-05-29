@@ -50,9 +50,10 @@ public class UserInterface {
         while (ordering) {
             printHeader("ORDER SCREEN");
             System.out.println("1) Add Burger");
-            System.out.println("2) Add Drink");
-            System.out.println("3) Add Side");
-            System.out.println("4) Checkout");
+            System.out.println("2) Add Signature Burger");
+            System.out.println("3) Add Drink");
+            System.out.println("4) Add Side");
+            System.out.println("5) Checkout");
             System.out.println("0) Cancel Order");
 
             System.out.print("Choose an option: ");
@@ -62,13 +63,20 @@ public class UserInterface {
                 case 1:
                     addBurger();
                     break;
+
                 case 2:
+                    addSignatureBurger();
+                    break;
+
+                case 3:
                     addDrink();
                     break;
-                case 3:
+
+                case 4:
                     addSide();
                     break;
-                case 4:
+
+                case 5:
 
                     if (order.isEmpty()) {
                         System.out.println(YELLOW + "Cannot checkout. Order is empty." + RESET);
@@ -427,6 +435,52 @@ public class UserInterface {
 
     public void printDivider() {
         System.out.println("---------------------------------");
+    }
+    public void addSignatureBurger() {
+
+        System.out.println("Choose Signature Burger:");
+        System.out.println("1) Biruk Classic");
+        System.out.println("2) Spicy Deluxe");
+        System.out.println("3) Veggie Supreme");
+
+        System.out.print("Choose an option: ");
+
+        int choice = getMenuChoice();
+
+        Burger burger;
+
+        switch (choice) {
+
+            case 1:
+
+                burger = new Burger("large", "beef", true);
+                burger.addTopping(new Topping("bacon", true, false));
+                burger.addTopping(new Topping("lettuce", false, false));
+                break;
+
+            case 2:
+
+                burger = new Burger("large", "chicken", true);
+                burger.addTopping(new Topping("onion", false, false));
+                burger.addTopping(new Topping("bacon", true, false));
+                break;
+
+            case 3:
+
+                burger = new Burger("large", "veggie", false);
+                burger.addTopping(new Topping("tomato", false, false));
+                burger.addTopping(new Topping("lettuce", false, false));
+                break;
+
+            default:
+
+                System.out.println("Invalid option.");
+                return;
+        }
+
+        order.addBurger(burger);
+
+        System.out.println("Signature Burger added successfully!");
     }
 }
 
